@@ -11,6 +11,10 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @endif
 
+    @if (config('services.fathom.site'))
+        <script src="https://cdn.usefathom.com/script.js" data-site="{{ config('services.fathom.site') }}" defer></script>
+    @endif
+
     {{ $head ?? '' }}
 </head>
 <body class="antialiased font-sans text-white h-full overflow-y-scroll">

@@ -14,6 +14,10 @@ return [
     |
     */
 
+    'fathom' => [
+        'site_id' => env('FATHOM_SITE'),
+    ],
+
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],
