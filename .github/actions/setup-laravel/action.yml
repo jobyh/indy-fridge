@@ -1,0 +1,51 @@
+name: 'Setup Laravel Environment'
+description: 'Sets up PHP, Node.js, and Laravel dependencies for CI builds'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: 8.4
+        extensions: mbstring, pdo_sqlite, gd, iconv, json, pdo
+
+    - name: Install PHP Dependencies
+      shell: bash
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+    - name: Setup Laravel environment
+      shell: bash
+      run: |
+        php -r "file_exists('.env') || copy('.env.example', '.env');"
+        echo "FATHOM_SITE=${{ env.FATHOM_SITE }}" >> .env
+        php artisan key:generate --no-interaction
+        chmod -R 755 storage bootstrap/cache
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version-file: '.nvmrc'
+        cache: 'npm'
+
+    - name: Install Node Dependencies
+      shell: bash
+      run: npm ci
+
+    - name: Build assets
+      shell: bash
+      run: npm run build
+
+    - name: Create database
+      shell: bash
+      run: |
+        mkdir -p database
+        touch database/database.sqlite
+
+    - name: Execute migrations and seeders
+      shell: bash
+      run: php artisan migrate --force --seed
+
+    - name: Execute migrations and seeders
+      shell: bash
+      run: php artisan roach:run IndySpider

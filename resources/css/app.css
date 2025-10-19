@@ -1,0 +1,62 @@
+@import 'tailwindcss';
+@import '../../node_modules/nprogress/nprogress.css';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+@layer utilities {
+    [x-cloak] {
+        display: none !important;
+    }
+
+    mark {
+        @apply bg-[lime];
+    }
+
+    .border-default {
+        @apply border-gray-700;
+    }
+
+    .divide-default {
+        @apply divide-gray-700;
+    }
+
+    .w-layout {
+        @apply max-w-screen-md;
+    }
+
+    .mx-layout {
+        @apply mx-4;
+    }
+
+    .px-layout {
+        @apply px-4;
+    }
+
+    .pl-layout {
+        @apply pl-4;
+    }
+
+    .pr-layout {
+        @apply pr-4;
+    }
+
+    .scrollbar {
+        scrollbar-gutter: stable;
+    }
+}
+
+#nprogress .bar {
+    @apply bg-white h-1;
+}
+
+#nprogress .spinner {
+    @apply hidden;
+}
