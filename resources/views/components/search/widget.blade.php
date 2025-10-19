@@ -29,7 +29,7 @@
     <label for="search" class="sr-only">Search beers</label>
     <input
         id="search"
-        x-model.debounce="query"
+        x-model.debounce.400ms="query"
         name="search"
         type="text"
         placeholder="Search"
