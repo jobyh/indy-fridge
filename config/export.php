@@ -14,7 +14,7 @@ return [
      *
      * For example: "about", "posts/featured"
      */
-    'paths' => ['/', '/qr', '/menu'],
+    'paths' => ['/', '/qr'],
 
     /*
      * Files and folders that should be included in the build. Expects
