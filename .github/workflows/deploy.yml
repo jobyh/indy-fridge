@@ -34,12 +34,15 @@ jobs:
           ALGOLIA_SECRET: ${{ secrets.ALGOLIA_SECRET }}
           NIGHTWATCH_TOKEN: ${{ secrets.NIGHTWATCH_TOKEN }}
 
-#      - name: Gather beer data
-#        shell: bash
-#        run: php artisan roach:run IndySpider
+      - name: Fire up Nightwatch agent
+        run: |
+          php artisan nightwatch:agent &
+          sleep 5
+
+      - name: Gather beer data
+        run: php artisan roach:run IndySpider
 
       - name: Refresh search index
-        shell: bash
         run: |
           php artisan scout:flush 'App\Models\Beer'
           php artisan scout:import 'App\Models\Beer'
