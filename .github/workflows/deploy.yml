@@ -46,6 +46,9 @@ jobs:
           php artisan scout:flush 'App\Models\Beer'
           php artisan scout:import 'App\Models\Beer'
 
+      - name: Generate take-out menu
+        run: php artisan app:take-out-menu
+
       - name: Generate static site
         run: php artisan export
 

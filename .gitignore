@@ -4,6 +4,7 @@
 /public/build
 /public/hot
 /public/storage
+/public/take-out-cans.pdf
 /storage/*.key
 /storage/debugbar
 /storage/pail
