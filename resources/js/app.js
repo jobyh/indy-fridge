@@ -1,3 +1,3 @@
 import './bootstrap'
 import './algolia'
-import.meta.glob(['../images/**'])
+import.meta.glob(['../graphics/**'])
