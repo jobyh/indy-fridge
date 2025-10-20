@@ -32,7 +32,8 @@
         </div>
     </x-type>
     <x-type variant="dim" tag="p" x-html="hit.description" class="text-sm mt-1.5 max-w-3xl"></x-type>
-    <dl class="mt-3">
+
+    <dl class="mt-3 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
         <div class="flex items-end gap-2">
             <dt class="sr-only">Price</dt>
             <dd>
@@ -43,11 +44,15 @@
                 <x-type variant="bright bold" x-html="hit.size" class="text-xs leading-2"></x-type>
             </dd>
         </div>
-        <dt class="sr-only">Quantity in stock</dt>
-        <dd class="text-sm">
-            <x-type.link x-bind:href="'https://theindependent.pub' + hit.url">
-                <x-type x-text="hit.stock"></x-type><span aria-hidden="true"> in stock</span>
-            </x-type.link>
-        </dd>
+
+        <div>
+            <dt class="sr-only">Quantity in stock</dt>
+            <dd class="text-sm">
+                <a x-bind:href="'https://theindependent.pub' + hit.url" class="inline-block bg-blue-500 text-gray-900 px-4 py-1.5 rounded-md font-bold w-full sm:w-auto text-center">
+                    <x-type x-text="hit.stock"></x-type><span aria-hidden="true"> in stock</span>
+                </a>
+            </dd>
+        </div>
     </dl>
+
 </{{ $tag }}>
