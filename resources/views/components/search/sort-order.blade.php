@@ -4,22 +4,27 @@
         (object)[
             'value' => 'beers-modified-desc',
             'label' => 'Updated',
+            'icon' => 'sort-desc',
         ],
         (object)[
             'value' => 'beers-price-asc',
             'label' => 'Price Low',
+            'icon' => 'sort-asc',
         ],
         (object)[
             'value' => 'beers-price-desc',
             'label' => 'Price High',
+            'icon' => 'sort-desc',
         ],
         (object)[
             'value' => 'beers-abv-asc',
             'label' => 'ABV low',
+            'icon' => 'sort-asc',
         ],
         (object)[
             'value' => 'beers-abv-desc',
             'label' => 'ABV high',
+            'icon' => 'sort-desc',
         ],
     ];
 @endphp
@@ -33,8 +38,14 @@
                     this.$dispatch('sortChanged', { index: this.index })
                 })
             },
-            optionLabel() {
-                return this.options.find(option => option.value === this.index).label;
+            get currentOption() {
+                return this.options.find(option => option.value === this.index)
+            },
+            get optionIcon() {
+                return this.currentOption.icon;
+            },
+            get optionLabel() {
+                return this.currentOption.label;
             },
         }))
     })
@@ -62,7 +73,15 @@
                 'flex h-full items-center gap-1.5 justify-start bg-white/10 pointer-events-none',
             ])
         >
-            <x-icon.sort class="w-5 h-5 text-gray-400 translate-y-[2px]" />
+            <div>
+                @foreach(collect($options)->pluck('icon')->unique() as $icon)
+                    <x-dynamic-component
+                        x-show="optionIcon === '{{ $icon }}'"
+                        component="icon.{{ $icon }}"
+                        class="w-4 h-4 text-gray-400"
+                    />
+                @endforeach
+            </div>
             <x-type aria-hidden="true" x-text="optionLabel" class="hidden sm:block grow text-sm">{{ $options[0]->label }}</x-type>
             <x-icon.select-handle class="w-3 h-3 text-gray-400" />
         </div>
