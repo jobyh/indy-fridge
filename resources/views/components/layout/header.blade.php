@@ -1,5 +1,5 @@
 <div {{ $attributes->class([
-    'bg-black/75 backdrop-blur-lg saturate-40 py-3 border-default border-b',
+    'bg-black py-3 border-default border-b',
 ]) }}>
     <div class="w-layout mx-auto px-layout">
 

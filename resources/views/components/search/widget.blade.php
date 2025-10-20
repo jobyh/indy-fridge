@@ -25,7 +25,7 @@
         'flex gap-2 items-stretch rounded-sm',
         'border border-white/15',
         'bg-white/10 overflow-hidden',
-        'focus-within:ring-2 focus-within:ring-white/90'
+        'focus-within:ring-2 focus-within:ring-blue-500'
     ]) }}
 >
     <label for="search" class="sr-only">Search beers</label>

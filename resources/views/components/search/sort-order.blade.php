@@ -58,7 +58,7 @@
             'relative overflow-hidden',
             'border-white/20 border',
             'rounded-sm',
-            'group-has-focus-visible:ring-2',
+            'group-has-focus-visible:ring-2 group-has-focus-visible:ring-blue-500',
         ])
     >
         <x-form.select
