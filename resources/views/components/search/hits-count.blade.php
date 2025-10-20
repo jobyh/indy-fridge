@@ -31,8 +31,8 @@
 >
     <span x-show="noHits">No beers found</span>
     <span x-show="hasHits">
-        <span x-text="totalHits" class="bg-white text-black px-2 py-0.5 rounded-full font-bold"></span>
+        <span x-text="totalHits" class="bg-white text-black px-2 py-0.5 rounded-full font-bold inline-block mr-0.5"></span>
         <span x-text="beerOrBeers"></span>
     found</span>
-    <span x-show="moreHits" class="hidden sm:inline">(showing <span x-text="showing"></span>)</span>
+    <span x-show="moreHits">(showing <span x-text="showing"></span>)</span>
 </p>
