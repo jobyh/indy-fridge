@@ -25,7 +25,8 @@ used as an event bus to prevent tight coupling between components.
 ## TODO
 - Add responsive can images (save these to storage)
 - Add a favicon
-- 
+- Add filters back but in a modal
+- QR code
 
 ## License
 
