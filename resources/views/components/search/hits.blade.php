@@ -64,7 +64,7 @@
 
     <div class="px-layout flex justify-center py-8">
         <button x-show="!isLastPage" x-on:click="handleMoreClick" class="active:scale-95 cursor-pointer px-6 py-2 bg-gray-800 border border-default rounded-sm">
-            <x-type variant="upper">Show more</x-type>
+            <x-type variant="upper" class="text-sm">Show more</x-type>
         </button>
     </div>
 </div>
