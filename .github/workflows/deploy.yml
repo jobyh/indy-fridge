@@ -39,11 +39,9 @@ jobs:
           sleep 5
 
       - name: Gather beer data
-        if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
         run: php artisan roach:run IndySpider
 
       - name: Refresh search index
-        if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
         run: |
           php artisan scout:flush 'App\Models\Beer'
           php artisan scout:import 'App\Models\Beer'
