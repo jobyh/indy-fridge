@@ -45,7 +45,9 @@
         </div>
         <dt class="sr-only">Quantity in stock</dt>
         <dd class="text-sm">
-            <x-type x-text="hit.stock"></x-type><span aria-hidden="true"> in stock</span>
+            <x-type.link x-bind:href="'https://theindependent.pub' + hit.url">
+                <x-type x-text="hit.stock"></x-type><span aria-hidden="true"> in stock</span>
+            </x-type.link>
         </dd>
     </dl>
 </{{ $tag }}>
