@@ -4,14 +4,17 @@
     <div class="w-layout mx-auto px-layout">
 
         <div class="text-xs flex justify-between items-center -translate-y-1">
-            <div class="flex items-center gap-2 text-nowrap">
+            <div class="flex items-center gap-1 text-nowrap">
                 <x-type tag="h1" class="uppercase tracking-wider flex items-center gap-1.5">
                     <x-icon.crow class="w-4 h-4 -translate-y-0.5" />
                     {{ config('app.name') }}
                 </x-type>
-                <p class="text-[10px] sm:text-xs">by <a href="https://fullstackappco.com" class="underline decoration-[lime]">Joby</a></p>
+                <x-type tag="p" variant="dim" class="text-[10px] sm:text-xs">
+                    <span class="hidden sm:inline">for the locals</span>
+                    by <a href="https://fullstackappco.com" class="underline decoration-[lime] text-white">Joby</a>
+                </x-type>
             </div>
-            <small class="text-[10px] sm:text-xs text-nowrap">Search <span class="hidden sm:inline">powered</span> by <a href="https://algolia.com" class="underline decoration-[lime]">Algolia</a></small>
+            <x-type tag="small" variant="dim" class="text-[10px] sm:text-xs text-nowrap">Search <span class="hidden sm:inline">powered</span> by <a href="https://algolia.com" class="underline decoration-[lime] text-white">Algolia</a></x-type>
         </div>
 
         <div class="flex w-full items-stretch gap-2">
