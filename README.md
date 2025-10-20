@@ -25,7 +25,7 @@ used as an event bus to prevent tight coupling between components.
 - [x] Keyboard focus styles
 - [x] Add a favicon
 - [ ] Add filters in a modal
-- [ ] QR code
+- [x] QR code
 - [ ] Add responsive can images (save these to storage)
 - [ ] Fix hops layout when there are lots of hops
 
