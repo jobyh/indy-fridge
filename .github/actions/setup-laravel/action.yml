@@ -18,6 +18,7 @@ runs:
       shell: bash
       run: |
         php -r "file_exists('.env') || copy('.env.example', '.env');"
+        echo "APP_ENV=production" >> .env
         echo "APP_URL=${{ env.APP_URL }}" >> .env
         echo "FATHOM_SITE=${{ env.FATHOM_SITE }}" >> .env
         echo "ALGOLIA_APP_ID=${{ env.ALGOLIA_APP_ID }}" >> .env

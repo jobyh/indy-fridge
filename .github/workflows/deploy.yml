@@ -27,7 +27,6 @@ jobs:
       - name: Setup Laravel Environment
         uses: ./.github/actions/setup-laravel
         env:
-          APP_URL: https://indy-fridge.jobyharding.com
           FATHOM_SITE: ${{ secrets.FATHOM_SITE }}
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
           ALGOLIA_SEARCH_KEY: ${{ secrets.ALGOLIA_SEARCH_KEY }}
