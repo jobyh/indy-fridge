@@ -23,10 +23,12 @@ As such, I've used an event-driven approach where `window` object is
 used as an event bus to prevent tight coupling between components.
 
 ## TODO
-- Add responsive can images (save these to storage)
-- Add a favicon
-- Add filters back but in a modal
-- QR code
+- [ ] Keyboard focus styles
+- [ ] Add a favicon
+- [ ] Add filters in a modal
+- [ ] QR code
+- [ ] Add responsive can images (save these to storage)
+- [ ] Fix hops layout when there are lots of hops
 
 ## License
 
