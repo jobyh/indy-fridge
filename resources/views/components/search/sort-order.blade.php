@@ -50,14 +50,15 @@
         }))
     })
 </script>
-<div {{ $attributes->class('flex items-stretch gap-1.5 bg-[lime') }}>
+<div {{ $attributes->class('group flex items-stretch gap-1.5 bg-[lime') }}>
     <div
         x-data="sortBy"
         @class([
-            'w-full',
+            'group w-full',
             'relative overflow-hidden',
             'border-white/20 border',
             'rounded-sm',
+            'group-has-focus-visible:ring-2',
         ])
     >
         <x-form.select
@@ -65,7 +66,9 @@
             x-model="index"
             :options="$options"
             name="sort-by"
-            @class(['absolute top-0 right-0 bottom-0 left-0 opacity-0'])
+            @class([
+                'absolute top-0 right-0 bottom-0 left-0 opacity-0',
+            ])
         />
         <div
             @class([
@@ -82,7 +85,7 @@
                     />
                 @endforeach
             </div>
-            <x-type aria-hidden="true" x-text="optionLabel" class="hidden sm:block grow text-sm">{{ $options[0]->label }}</x-type>
+            <x-type x-cloak aria-hidden="true" x-text="optionLabel" class="hidden sm:block grow text-sm">{{ $options[0]->label }}</x-type>
             <x-icon.select-handle class="w-3 h-3 text-gray-400" />
         </div>
     </div>
