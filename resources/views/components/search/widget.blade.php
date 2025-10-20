@@ -21,6 +21,7 @@
 <div
     x-data="search"
     {{ $attributes->class([
+        'relative',
         'flex gap-2 items-stretch rounded-sm',
         'border border-white/15',
         'bg-white/10 overflow-hidden',
@@ -33,7 +34,7 @@
         name="search"
         type="text"
         placeholder="Search"
-        class="px-3 w-full outline-none"
+        class="pl-8 pr-3 w-full outline-none"
         autocomplete="off"
         x-on:keydown.escape="clear"
     />
@@ -51,4 +52,7 @@
         <span class="sr-only">Clear</span>
     </button>
 
+    <div class="absolute top-0 left-0 h-full flex items-center justify-center px-2">
+        <x-icon.search class="w-4 h-4 text-gray-400" />
+    </div>
 </div>
