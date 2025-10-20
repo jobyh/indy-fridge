@@ -28,6 +28,7 @@ used as an event bus to prevent tight coupling between components.
 - [x] QR code
 - [ ] Add responsive can images (save these to storage)
 - [ ] Fix hops layout when there are lots of hops
+- [ ] Touch icons & alternate favicons
 
 ## License
 
