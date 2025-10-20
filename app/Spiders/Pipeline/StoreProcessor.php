@@ -14,6 +14,10 @@ class StoreProcessor implements ItemProcessorInterface
 
     public function processItem(ItemInterface $item): ItemInterface
     {
+        if ($item->get('stock') === 0) {
+            return $item->drop('Beer '.$item->get('url').' is out of stock');
+        }
+
         $null = collect($item->all())->filter(fn ($value) => is_null($value));
 
         if ($null->isNotEmpty()) {
