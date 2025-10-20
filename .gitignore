@@ -8,6 +8,8 @@
 /storage/debugbar
 /storage/pail
 /vendor
+/.claude/agents
+/.claude/settings.local.json
 .env
 .env.backup
 .env.production
