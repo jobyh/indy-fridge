@@ -1,6 +1,6 @@
 @use(Illuminate\Support\Facades\Vite)
 <!DOCTYPE html>
-<html {{ $attributes->merge(['lang' => str_replace('_', '-', app()->getLocale())])->class('text-lg lg:text-xl min-h-dvh') }}">
+<html {{ $attributes->merge(['lang' => str_replace('_', '-', app()->getLocale())])->class('text-lg lg:text-xl') }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +20,7 @@
 
     {{ $head ?? '' }}
 </head>
-<body class="antialiased font-sans text-white h-full overflow-y-scroll">
+<body class="antialiased font-sans text-white h-dvh overflow-y-scroll">
     {{ $slot }}
 </body>
 </html>
