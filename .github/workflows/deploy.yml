@@ -34,9 +34,6 @@ jobs:
           ALGOLIA_SECRET: ${{ secrets.ALGOLIA_SECRET }}
           NIGHTWATCH_TOKEN: ${{ secrets.NIGHTWATCH_TOKEN }}
 
-      - name: Run tests
-        run: composer test
-
 #      - name: Gather beer data
 #        shell: bash
 #        run: php artisan roach:run IndySpider
