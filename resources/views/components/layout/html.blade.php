@@ -1,3 +1,4 @@
+@use(Illuminate\Support\Facades\Vite)
 <!DOCTYPE html>
 <html {{ $attributes->merge(['lang' => str_replace('_', '-', app()->getLocale())])->class('lg:text-xl') }}">
 <head>
@@ -5,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Indy Fridge</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ Vite::asset('resources/graphics/favicon.png') }}" />
 
     <!-- Styles / Scripts -->
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
