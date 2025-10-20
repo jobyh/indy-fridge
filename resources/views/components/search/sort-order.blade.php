@@ -60,12 +60,11 @@
             @class([
                 'px-2 py-1',
                 'flex h-full items-center gap-1.5 justify-start bg-white/10 pointer-events-none',
-                'text-gray-400'
             ])
         >
-            <x-icon.sort class="w-5 h-5" />
-            <span aria-hidden="true" x-text="optionLabel" class="hidden sm:block  grow">{{ $options[0]->label }}</span>
-            <x-icon.select-handle class="w-3 h-3" />
+            <x-icon.sort class="w-5 h-5 text-gray-400 translate-y-[2px]" />
+            <x-type aria-hidden="true" x-text="optionLabel" class="hidden sm:block grow text-sm">{{ $options[0]->label }}</x-type>
+            <x-icon.select-handle class="w-3 h-3 text-gray-400" />
         </div>
     </div>
 </div>
