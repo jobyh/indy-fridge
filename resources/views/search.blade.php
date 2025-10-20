@@ -7,7 +7,7 @@
     <x-layout.header class="sticky top-0 z-10 px-layout " />
     <main class="w-layout mx-auto">
         <x-search.info x-cloak x-data class="mx-layout md:!mx-0 px-layout"  />
-        <x-search.hits x-cloak class="mx-layout md:!mx-0" />
+        <x-search.hits x-cloak class="mx-layout md:!mx-0 mb-10" />
         <x-loader x-data="loader" />
     </main>
 </x-layout.html>
