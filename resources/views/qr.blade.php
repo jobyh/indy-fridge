@@ -14,7 +14,7 @@
 
 <x-layout.html>
 
-    <div class="relative w-sm h-sm border-black">
+    <div class="relative border-black">
         <img
             alt="QR Code link to {{ $url }}"
             src="{{ new QRCode($options)->render($url) }}"
@@ -23,8 +23,7 @@
         <x-icon.crow @class([
             'text-black absolute top-1/2 left-1/2',
             '-translate-x-1/2 -translate-y-[calc(50%+0.5rem)]',
-            'w-28 h-28'
+            'w-[30%] h-[30%]'
         ]) />
-        <p class="absolute font-mono text-xs text-black top-2 left-8">{{ $url }}</p>
     </div>
 </x-layout.html>
