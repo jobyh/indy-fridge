@@ -17,27 +17,32 @@ class StoreProcessor implements ItemProcessorInterface
         $null = collect($item->all())->filter(fn ($value) => is_null($value));
 
         if ($null->isNotEmpty()) {
-            $message = 'Beer '.$item->get('url').' missing data: ' . $null->keys()->implode(', ');
+            $message = 'Beer '.$item->get('url').' missing data: '.$null->keys()->implode(', ');
+
             return $item->drop($message);
         }
 
-        $beer = Beer::firstOrNew(['url' => $item->get('url')])->forceFill(Arr::only($item->all(), [
-            'url',
-            'name',
-            'description',
-            'brewery',
-            'style',
-            'abv',
-            'price',
-            'stock',
-            'size',
-            'tags',
-            'hops',
-            'published_at',
-            'modified_at',
-        ]))->save();
+        Beer::withoutSyncingToSearch(function () use ($item) {
+            $beer = Beer::firstOrNew(['url' => $item->get('url')])->forceFill(Arr::only($item->all(), [
+                'url',
+                'name',
+                'description',
+                'brewery',
+                'style',
+                'abv',
+                'price',
+                'stock',
+                'size',
+                'tags',
+                'hops',
+                'published_at',
+                'modified_at',
+            ]));
 
-//        $beer->addMediaFromUrl($item->get('src'))->toMediaCollection('product');
+            $beer->save();
+
+            //            $beer->addMediaFromUrl($item->get('src'))->toMediaCollection('product');
+        });
 
         return $item;
     }
