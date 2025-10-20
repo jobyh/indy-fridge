@@ -12,7 +12,7 @@ runs:
 
     - name: Install PHP Dependencies
       shell: bash
-      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      run: composer install -q --no-dev --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
     - name: Setup Laravel environment
       shell: bash
