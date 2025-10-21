@@ -37,6 +37,7 @@
         placeholder="Search"
         class="pl-8 pr-3 w-full outline-none"
         autocomplete="off"
+        spellcheck="false"
         x-on:keydown.escape="clear"
     />
     <button
