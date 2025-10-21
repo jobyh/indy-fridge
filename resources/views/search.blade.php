@@ -6,7 +6,7 @@
     </x-slot:head>
     <x-layout.header class="sticky top-0 z-10" />
     <main class="w-layout mx-auto px-layout">
-        <x-search.info x-cloak x-data class="mx-layout lg:!mx-0"  />
+        <x-search.info x-cloak x-data class="mx-layout"  />
         <x-search.hits x-cloak class="-mx-layout md:!mx-0" />
         <x-loader x-data="loader" />
     </main>
