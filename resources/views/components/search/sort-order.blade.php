@@ -3,7 +3,7 @@
     $options = [
         (object)[
             'value' => 'beers-modified-desc',
-            'label' => 'Updated',
+            'label' => 'Relevance',
             'icon' => 'sort-desc',
         ],
         (object)[
