@@ -14,7 +14,7 @@
 
 <x-layout.html>
 
-    <div class="relative border-black">
+    <div class="relative border-black max-w-md mx-auto">
         <img
             alt="QR Code link to {{ $url }}"
             src="{{ new QRCode($options)->render($url) }}"
