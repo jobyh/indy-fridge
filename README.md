@@ -26,6 +26,7 @@ used as an event bus to prevent tight coupling between components.
 - [x] Add a favicon
 - [ ] Add filters in a modal
 - [x] QR code
+- [ ] Cache SQLite database between builds so spidering only happens once a day
 - [ ] Add responsive can images (save these to storage)
 - [ ] Fix hops layout when there are lots of hops
 - [ ] Touch icons & alternate favicons
