@@ -1,6 +1,6 @@
 @props(['tag' => 'div'])
 <{{ $tag }} {{ $attributes->class('px-layout py-4 relative bg-gray-900 rounded-2xl shadow-xl') }}>
-    <div class="flex items-center flex-wrap gap-x-4 gap-y-2">
+    <div class="flex flex-row items-center flex-wrap gap-x-4 gap-y-2">
         <x-label>
             <div class="flex items-center gap-1.5">
                 <x-icon.brewery class="w-4 h-4 text-gray-400" />
@@ -9,19 +9,20 @@
             </div>
         </x-label>
 
-        <x-label x-show="hit.hops.length">
-            <div class="flex items-center flex-wrap">
+        <div x-show="hit.hops.length">
+            <div class="!text-sm flex items-center flex-wrap">
                 <span class="sr-only">Hops: </span>
-                <x-icon.hop class="w-4 h-4 text-gray-400 mr-1.5" />
-                <ul class="flex items-center gap-1.5 flex-wrap">
+                <x-icon.hop class="w-4 h-4 text-gray-500 mr-1.5" />
+                <x-type tag="ul" variant="dim" class="flex items-center gap-1.5 flex-wrap">
                     <template x-for="(hop, index) in hit.hops" :key="hop">
-                        <x-type x-tag="li" variant="upper" class="inline-block">
+                        <x-type x-tag="li" class="inline-block">
                             <span x-text="hop"></span><span x-show="index < hit.hops.length - 1">, </span>
                         </x-type>
                     </template>
-                </ul>
+                </x-type>
             </div>
-        </x-label>
+        </div>
+
     </div>
 
     <x-type tag="h2" variant="bright bold" class="mt-2 leading-tight flex flex-col">
