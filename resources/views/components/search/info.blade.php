@@ -1,6 +1,6 @@
 @use(Illuminate\Support\Carbon)
+@use(App\Models\Settings\BuildSetting)
 <div {{ $attributes->class("my-3 flex items-center justify-between flex-wrap") }}>
     <x-search.hits-count />
-    {{-- Time now as is a static build. --}}
-    <p class="text-sm text-white hidden sm:block">Updated {{ Carbon::now()->timezone('Europe/London')->format('D M jS  H:i') }}</p>
+    <p class="text-sm text-white hidden sm:block">{{ BuildSetting::sole()->forHumans() }}</p>
 </div>
