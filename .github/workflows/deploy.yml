@@ -42,11 +42,13 @@ jobs:
           NIGHTWATCH_TOKEN: ${{ secrets.NIGHTWATCH_TOKEN }}
 
       - name: Fire up Nightwatch agent
+        if: steps.cache-db.outputs.cache-hit != 'true'
         run: |
           php artisan nightwatch:agent &
           sleep 5
 
       - name: Gather beer data
+        if: steps.cache-db.outputs.cache-hit != 'true'
         run: php artisan roach:run IndySpider
 
       - name: Save database cache
@@ -57,6 +59,7 @@ jobs:
           key: db-${{ hashFiles('database/migrations/**') }}
 
       - name: Refresh search index
+        if: steps.cache-db.outputs.cache-hit != 'true'
         run: |
           php artisan scout:flush 'App\Models\Beer'
           php artisan scout:import 'App\Models\Beer'
