@@ -42,7 +42,6 @@ jobs:
           NIGHTWATCH_TOKEN: ${{ secrets.NIGHTWATCH_TOKEN }}
 
       - name: Fire up Nightwatch agent
-        if: steps.cache-db.outputs.cache-hit != 'true'
         run: |
           php artisan nightwatch:agent &
           sleep 5
