@@ -3,7 +3,7 @@
 @use(chillerlan\QRCode\QROptions)
 
 @php
-    $url = 'https://indy-fridge.jobyharding.com';
+    $url = 'https://indy-fridge.jobyharding.com?utm_source=QR%20Code';
     $options = new QROptions([
         'addLogoSpace' => true,
         'logoSpaceWidth' => 15,
@@ -23,7 +23,7 @@
         <x-icon.crow @class([
             'text-black absolute top-1/2 left-1/2',
             '-translate-x-1/2 -translate-y-[calc(50%+0.5rem)]',
-            'w-[30%] h-[30%]'
+            'w-[25%] h-[25%]'
         ]) />
     </div>
 </x-layout.html>
