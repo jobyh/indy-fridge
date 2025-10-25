@@ -49,7 +49,7 @@
         <div>
             <dt class="sr-only">Quantity in stock</dt>
             <dd class="text-sm">
-                <a x-bind:href="'https://theindependent.pub' + hit.url" class="inline-block bg-blue-500 text-gray-900 px-4 py-1.5 rounded-md font-bold w-full sm:w-auto text-center">
+                <a x-bind:href="'https://theindependent.pub' + hit.url" class="inline-block bg-blue-500 text-gray-900 px-5 py-1.5 rounded-full font-bold w-full sm:w-32 text-center border">
                     <x-type x-text="hit.stock"></x-type><span aria-hidden="true"> in stock</span>
                 </a>
             </dd>
