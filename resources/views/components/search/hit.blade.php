@@ -27,11 +27,11 @@
 
     <x-type tag="h2" variant="bright bold" class="mt-2 leading-tight flex flex-col">
         <x-type x-html="hit.name" class="text-lg "></x-type>
-        <div class="text-sm">
-            <x-type x-html="hit.style"></x-type>
-            <x-abv x-html="hit.abv" />
-        </div>
     </x-type>
+    <x-search.style-and-tags class="text-gray-300" />
+
+    <x-abv x-html="hit.abv" />
+
     <x-type variant="dim" tag="p" x-html="hit.description" class="text-sm mt-1.5 max-w-3xl"></x-type>
 
     <dl class="mt-3 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">

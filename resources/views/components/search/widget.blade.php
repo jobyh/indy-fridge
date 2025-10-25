@@ -34,8 +34,16 @@
         x-model.debounce.400ms="query"
         name="search"
         type="text"
-        placeholder="Search"
-        class="pl-8 pr-3 w-full outline-none"
+        placeholder="{{ Arr::random([
+          'peacharine nectaron',
+          'Beak IPA',
+          'Rivington',
+          'Arpus',
+          'Pressure Drop',
+          'mosaic citra',
+          'DDH NEIPA',
+        ]) . '...' }}"
+        class="placeholder:text-gray-500 pl-8 pr-3 w-full outline-none"
         autocomplete="off"
         spellcheck="false"
         x-on:keydown.escape="clear"
