@@ -23,9 +23,8 @@
     {{ $attributes->class([
         'relative',
         'flex gap-2 items-stretch rounded-sm',
-        'border border-white/15',
-        'bg-white/10 overflow-hidden',
-        'focus-within:ring-2 focus-within:ring-blue-500'
+        'bg-gray-700 overflow-hidden',
+        'focus-within:ring-3 focus-within:ring-green-500'
     ]) }}
 >
     <label for="search" class="sr-only">Search beers</label>
@@ -35,15 +34,15 @@
         name="search"
         type="text"
         placeholder="{{ Arr::random([
-          'peacharine nectaron',
+          'Peacharine nectaron',
           'Beak IPA',
           'Rivington',
           'Arpus',
           'Pressure Drop',
-          'mosaic citra',
+          'Mosaic citra',
           'DDH NEIPA',
         ]) . '...' }}"
-        class="placeholder:text-gray-500 pl-8 pr-3 w-full outline-none"
+        class="placeholder:text-gray-400 pl-8 pr-3 w-full outline-none"
         autocomplete="off"
         spellcheck="false"
         x-on:keydown.escape="clear"

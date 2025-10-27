@@ -1,5 +1,4 @@
 @props(['variant' => ''])
-@use(function App\variants)
 @php
     $px = 'px-2';
     $py = 'py-1';

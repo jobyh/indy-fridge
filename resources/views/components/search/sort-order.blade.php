@@ -56,9 +56,8 @@
         @class([
             'group w-full',
             'relative overflow-hidden',
-            'border-white/20 border',
             'rounded-sm',
-            'group-has-focus-visible:ring-2 group-has-focus-visible:ring-blue-500',
+            'group-has-focus-visible:ring-3 group-has-focus-visible:ring-green-500',
         ])
     >
         <x-form.select
@@ -66,14 +65,12 @@
             x-model="index"
             :options="$options"
             name="sort-by"
-            @class([
-                'absolute top-0 right-0 bottom-0 left-0 opacity-0',
-            ])
+            @class(['absolute top-0 right-0 bottom-0 left-0 opacity-0'])
         />
         <div
             @class([
                 'px-2 py-1',
-                'flex h-full items-center gap-1.5 justify-start bg-white/10 pointer-events-none',
+                'flex h-full items-center gap-1.5 justify-start bg-gray-700 pointer-events-none',
             ])
         >
             <div>

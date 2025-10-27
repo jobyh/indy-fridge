@@ -22,6 +22,7 @@
                 <span class="hidden md:flex items-center ml-6 mr-2 text-sm">Sort by</span>
 
                 <x-search.sort-order class="md:w-[12rem]" />
+                <x-search.favorites-filter class="h-full" />
             </div>
 
         </div>
