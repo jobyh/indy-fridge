@@ -8,6 +8,10 @@
                     this.$dispatch('searchInput', { value });
                 })
                 this.$refs.button.classList.remove('opacity-20')
+
+                window.addEventListener('filterByFavorites', () => {
+                    this.clear()
+                })
             },
             clear() {
                 this.query = ''

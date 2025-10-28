@@ -71,6 +71,7 @@
                 return this.$store.favorites.count() > 0
             },
             applyFilter() {
+                window.dispatchEvent(new CustomEvent('filterByFavorites'))
                 this.$store.favorites.items.forEach(url => {
                     window.dispatchEvent(new CustomEvent('urlFacetToggle', {
                         detail: { value: url }
