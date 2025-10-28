@@ -66,7 +66,7 @@
             <div class="grow">
                 <dt class="sr-only">Quantity in stock</dt>
                 <dd>
-                    <x-button variant="primary" x-bind:href="'https://theindependent.pub' + hit.url" class="w-full sm:w-32">
+                    <x-button variant="primary" href="#" x-bind:href="'https://theindependent.pub' + hit.url" class="w-full sm:w-32">
                         <x-type x-text="hit.stock"></x-type><span aria-hidden="true"> in stock</span>
                     </x-button>
                 </dd>
