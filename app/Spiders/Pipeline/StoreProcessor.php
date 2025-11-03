@@ -18,7 +18,6 @@ class StoreProcessor implements ItemProcessorInterface
             return $item->drop('Beer '.$item->get('url').' is out of stock');
         }
 
-        // Only required fields - description sometimes is empty.
         $null = collect($item->all())->filter(fn ($value) => is_null($value));
 
         if ($null->isNotEmpty()) {

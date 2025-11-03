@@ -47,13 +47,13 @@ class IndySpider extends BasicSpider
             'url' => str($response->getRequest()->getUri())->after('https://theindependent.pub/')->prepend('/')->rtrim('/'),
             'brewery' => $this->safeFilter($response, '.elementor-element-d4cf7e7 h2')?->text(),
             'name' => $this->safeFilter($response, '.elementor-element-5301631 h1')?->text(),
-            'style' => $this->safeFilter($response, '.elementor-element-a62ad98 h4')?->text(),
+            'style' => $this->safeFilter($response, '.elementor-element-a62ad98 h4')?->text() ?? '',
             'hops' => $this->safeFilter($response, '.elementor-element-e000ce4 [rel=tag]')?->each(function (Crawler $node) {
                 return $node->text();
             }) ?? [],
             'abv' => $this->abv($response),
             'size' => $this->safeFilter($response, '.elementor-element-52414de')?->text(),
-            'description' => $this->safeFilter($response, '.elementor-element-a3924b1 p')?->text(),
+            'description' => $this->safeFilter($response, '.elementor-element-a3924b1 p')?->text() ?? '',
             'price' => $this->price($response),
             'stock' => intval($this->safeFilter($response, 'form.cart input[name=quantity]')?->attr('max') ?? 0),
             'tags' => $this->safeFilter($response, '.elementor-element-e62b829 [rel=tag]')?->each(function (Crawler $node) {
