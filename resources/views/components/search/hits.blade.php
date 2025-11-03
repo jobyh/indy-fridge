@@ -22,7 +22,7 @@
                         'url', 'name', 'brewery', 'style',
                         'abv', 'description', 'modifiedAt',
                         'hops', 'size', 'price_for_humans',
-                        'stock', 'tags',
+                        'stock', 'tags', 'product_image',
                     ]
 
                     return properties.reduce((acc, prop) => {

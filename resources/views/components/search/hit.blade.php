@@ -1,6 +1,7 @@
 @props(['tag' => 'div'])
 <{{ $tag }} {{ $attributes->class('px-layout py-4 relative bg-gray-900 rounded-2xl shadow-xl grid grid-cols-12 gap-4') }}>
-    <div class="bg-gray-800 w-full h-full aspect-square rounded-md col-span-3">
+    <div class="bg-white w-full h-full aspect-square rounded-md col-span-3 flex items-center justify-center">
+        <img x-bind:src="hit.product_image" x-bind:alt="'Picture of ' + hit.name" />
     </div>
 
     <div class="col-span-9">

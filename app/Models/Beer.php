@@ -9,6 +9,7 @@ use Illuminate\Support\Arr;
 use Laravel\Scout\Searchable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Beer extends Model implements HasMedia
 {
@@ -44,7 +45,7 @@ class Beer extends Model implements HasMedia
     public function toSearchableArray(): array
     {
         return Arr::except(
-            $this->append('price_for_humans')->toArray(),
+            $this->append(['price_for_humans', 'product_image'])->toArray(),
             ['id', 'created_at', 'updated_at'],
         );
     }
@@ -66,5 +67,19 @@ class Beer extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('product')->singleFile();
+    }
+
+    public function registerMediaConversions(?Media $media = null): void
+    {
+        $this->addMediaConversion('full')
+            ->width(500)
+            ->height(500);
+    }
+
+    public function productImage(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->getFirstMediaUrl('product', 'full')
+        );
     }
 }

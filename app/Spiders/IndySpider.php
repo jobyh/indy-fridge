@@ -59,7 +59,7 @@ class IndySpider extends BasicSpider
             'tags' => $this->safeFilter($response, '.elementor-element-e62b829 [rel=tag]')?->each(function (Crawler $node) {
                 return $node->text();
             }) ?? [],
-            'src' => $this->safeFilter($response, '.elementor-element-63cb0a9 img')?->attr('src'),
+            'src' => $this->safeFilter($response, '.elementor-element-63cb0a9 img')?->attr('data-breeze'),
             'published_at' => $this->safeFilter($response, 'meta[property="article:published_time"]')?->attr('content'),
             'modified_at' => $this->safeFilter($response, 'meta[property="article:modified_time"]')?->attr('content'),
         ]);
