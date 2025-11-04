@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Str;
 use Laravel\Scout\Searchable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -79,7 +81,7 @@ class Beer extends Model implements HasMedia
     public function productImage(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->getFirstMediaUrl('product', 'full')
+            get: fn () => Str::replaceFirst(Config::get('app.url'), '', $this->getFirstMediaUrl('product', 'full')),
         );
     }
 }
