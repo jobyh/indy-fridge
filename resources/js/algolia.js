@@ -7,6 +7,7 @@ import {
   connectClearRefinements,
 } from 'instantsearch.js/es/connectors'
 import Nprogress from 'nprogress'
+import Alpine from '@alpinejs/csp'
 
 const searchClient = algoliaSearch(
   import.meta.env.VITE_ALGOLIA_APP_ID,
@@ -64,6 +65,17 @@ const createRefinementList = facet =>
         },
       }),
     )
+
+    // Remove stale favorites based on available url facet options.
+    if (facet === 'url' && Alpine.store('favorites')) {
+      const facets = items.map(item => item.value)
+      const favorites = Alpine.store('favorites')
+      favorites.items = favorites.items.filter(url => facets.includes(url))
+
+      if (favorites.items.length === 0 && favorites.active) {
+        favorites.active = false
+      }
+    }
 
     if (isFirstRender) {
       window.addEventListener(`${facet}FacetToggle`, event => {

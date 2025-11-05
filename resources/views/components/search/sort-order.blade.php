@@ -74,16 +74,26 @@
             ])
         >
             <div>
-                @foreach(collect($options)->pluck('icon')->unique() as $icon)
+                @php
+                    $icons = collect($options)->pluck('icon')->unique();
+                    $first = $icons->first();
+                @endphp
+                <x-dynamic-component
+                    x-show="optionIcon === '{{ $first }}'"
+                    component="icon.{{ $first }}"
+                    class="w-4 h-4 text-gray-900"
+                />
+                @foreach($icons->slice(1) as $icon)
                     <x-dynamic-component
+                        x-cloak
                         x-show="optionIcon === '{{ $icon }}'"
                         component="icon.{{ $icon }}"
-                        class="w-4 h-4 text-white"
+                        class="w-4 h-4 text-gray-900"
                     />
                 @endforeach
             </div>
             <x-type x-cloak aria-hidden="true" x-text="optionLabel" class="hidden sm:block grow font-medium text-gray-900">{{ $options[0]->label }}</x-type>
-            <x-icon.select-handle class="w-3 h-3 text-white" />
+            <x-icon.select-handle class="w-3 h-3 text-gray-900" />
         </div>
     </div>
 </div>

@@ -46,7 +46,7 @@
           'Mosaic citra',
           'DDH NEIPA',
         ]) . '...' }}"
-        class="placeholder:text-gray-700 pl-8 pr-3 w-full h-full py-2 outline-none text-gray-900 font-medium"
+        class="placeholder:text-gray-600 pl-8 pr-3 w-full h-full py-2 outline-none text-gray-900 font-medium"
         autocomplete="off"
         spellcheck="false"
         x-on:keydown.escape="clear"
@@ -57,7 +57,7 @@
         x-bind:disabled="disableClear"
         @class([
             'p-2 focus:outline-none',
-            'text-white',
+            'text-gray-900',
             'focus-visible:bg-white focus-visible:text-black',
             'disabled:opacity-20 opacity-20',
         ])
@@ -67,6 +67,6 @@
     </button>
 
     <div class="absolute top-0 left-0 h-full flex items-center justify-center px-2">
-        <x-icon.search class="w-4 h-4 " />
+        <x-icon.search class="w-[1.15rem] h-[1.15rem] text-gray-900" />
     </div>
 </div>
