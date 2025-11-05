@@ -9,6 +9,6 @@
         <x-search.info x-cloak x-data class="mx-layout"  />
         <x-search.hits x-cloak class="-mx-layout md:!mx-0" />
         <x-loader x-data="loader" />
+        <x-disclaimer />
     </main>
-    <x-disclaimer />
 </x-layout.html>
