@@ -13,6 +13,6 @@ class BuildSetting extends Setting
 
     public function forHumans()
     {
-        return 'Updated ' . $this->value->timezone('Europe/London')->format('D M jS  H:i');
+        return 'List refreshed ' . $this->value->timezone('Europe/London')->format('M jS  H:i');
     }
 }
