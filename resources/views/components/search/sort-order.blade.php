@@ -50,14 +50,14 @@
         }))
     })
 </script>
-<div {{ $attributes->class('group flex items-stretch gap-1.5 bg-[lime') }}>
+<div {{ $attributes->class('group flex items-stretch gap-1.5') }}>
     <div
         x-data="sortBy"
         @class([
             'group w-full',
             'relative overflow-hidden',
             'rounded-sm',
-            'group-has-focus-visible:ring-3 group-has-focus-visible:ring-green-500',
+            'group-has-focus-visible:ring-3 group-has-focus-visible:ring-white',
         ])
     >
         <x-form.select
@@ -70,7 +70,7 @@
         <div
             @class([
                 'px-2 py-1',
-                'flex h-full items-center gap-1.5 justify-start bg-gray-700 pointer-events-none',
+                'flex h-full items-center gap-1.5 justify-start bg-white/60 pointer-events-none',
             ])
         >
             <div>
@@ -78,12 +78,12 @@
                     <x-dynamic-component
                         x-show="optionIcon === '{{ $icon }}'"
                         component="icon.{{ $icon }}"
-                        class="w-4 h-4 text-gray-400"
+                        class="w-4 h-4 text-white"
                     />
                 @endforeach
             </div>
-            <x-type x-cloak aria-hidden="true" x-text="optionLabel" class="hidden sm:block grow text-sm">{{ $options[0]->label }}</x-type>
-            <x-icon.select-handle class="w-3 h-3 text-gray-400" />
+            <x-type x-cloak aria-hidden="true" x-text="optionLabel" class="hidden sm:block grow font-medium text-gray-900">{{ $options[0]->label }}</x-type>
+            <x-icon.select-handle class="w-3 h-3 text-white" />
         </div>
     </div>
 </div>

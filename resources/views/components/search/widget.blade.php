@@ -27,8 +27,8 @@
     {{ $attributes->class([
         'relative',
         'flex gap-2 items-stretch rounded-sm',
-        'bg-gray-700 overflow-hidden',
-        'focus-within:ring-3 focus-within:ring-green-500'
+        'bg-white/60 overflow-hidden',
+        'focus-within:ring-3 focus-within:ring-white'
     ]) }}
 >
     <label for="search" class="sr-only">Search beers</label>
@@ -46,7 +46,7 @@
           'Mosaic citra',
           'DDH NEIPA',
         ]) . '...' }}"
-        class="placeholder:text-gray-400 pl-8 pr-3 w-full outline-none"
+        class="placeholder:text-gray-700 pl-8 pr-3 w-full h-full py-2 outline-none text-gray-900 font-medium"
         autocomplete="off"
         spellcheck="false"
         x-on:keydown.escape="clear"
@@ -56,16 +56,17 @@
         x-on:click="clear"
         x-bind:disabled="disableClear"
         @class([
-            'text-gray-300 p-2 focus:outline-none',
+            'p-2 focus:outline-none',
+            'text-white',
             'focus-visible:bg-white focus-visible:text-black',
             'disabled:opacity-20 opacity-20',
         ])
     >
-        <x-icon.xmark class="w-4 h-4 " />
+        <x-icon.xmark class="w-4 h-4" />
         <span class="sr-only">Clear</span>
     </button>
 
     <div class="absolute top-0 left-0 h-full flex items-center justify-center px-2">
-        <x-icon.search class="w-4 h-4 text-gray-400" />
+        <x-icon.search class="w-4 h-4 " />
     </div>
 </div>

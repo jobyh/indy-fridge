@@ -1,5 +1,5 @@
 @props(['tag' => 'div'])
-<{{ $tag }} {{ $attributes->class('px-layout py-4 relative bg-gray-900 rounded-2xl shadow-xl grid grid-cols-12 gap-4') }}>
+<{{ $tag }} {{ $attributes->class('px-layout py-4 relative bg-gray-900/60 ring-1 ring-white/30 rounded-2xl shadow-xl grid grid-cols-12 gap-4') }}>
     <div class="hidden sm:flex bg-white w-full h-full aspect-square rounded-md col-span-3 items-center justify-center py-3">
         <img x-bind:src="hit.product_image" x-bind:alt="'Picture of ' + hit.name" class="object-cover w-full h-full text-xs text-gray-500" />
     </div>
@@ -8,7 +8,7 @@
         <div class="flex flex-row items-center flex-wrap gap-x-4 gap-y-2">
             <x-label>
                 <div class="flex items-center gap-1.5">
-                    <x-icon.brewery class="w-4 h-4 text-gray-400" />
+                    <x-icon.brewery class="w-4 h-4 text-white/80" />
                     <span class="sr-only">Brewery: </span>
                     <x-type x-text="hit.brewery" variant="upper" class="translate-y-[0.05rem] pr-0.5"></x-type>
                 </div>
@@ -17,7 +17,7 @@
             <div x-show="hit.hops.length">
                 <div class="!text-sm flex items-center flex-wrap">
                     <span class="sr-only">Hops: </span>
-                    <x-icon.hop class="w-4 h-4 text-gray-500 mr-1.5" />
+                    <x-icon.hop class="w-4 h-4 text-white/70 mr-1.5" />
                     <x-type tag="ul" variant="dim" class="flex items-center gap-1.5 flex-wrap">
                         <template x-for="(hop, index) in hit.hops" :key="hop">
                             <x-type x-tag="li" class="inline-block">

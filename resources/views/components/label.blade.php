@@ -6,8 +6,8 @@
     $wantsDivide = str_contains($variant, 'divide');
 @endphp
 <div {{ $attributes->class([
-    'bg-gray-800',
-    'border-default border',
+    'bg-black/30',
+    'ring-white/20 ring-1',
     'rounded-sm text-white text-[0.7rem]',
     'tracking-wider',
     $divide,

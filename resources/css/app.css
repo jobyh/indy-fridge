@@ -17,7 +17,7 @@
     }
 
     mark {
-        @apply bg-[lime];
+        @apply bg-white text-black;
     }
 
     .border-default {
@@ -54,7 +54,7 @@
 }
 
 #nprogress .bar {
-    @apply bg-blue-500 h-0.5;
+    @apply bg-white h-0.5;
 }
 
 #nprogress .spinner {

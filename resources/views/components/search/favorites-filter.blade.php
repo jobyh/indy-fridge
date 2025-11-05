@@ -57,6 +57,7 @@
     })
 </script>
 <x-button.favourite
+    variant="light"
     x-data
     x-on:click="$store.favorites.toggleActive()"
     x-bind:disabled="!$store.favorites.hasFavorites"
