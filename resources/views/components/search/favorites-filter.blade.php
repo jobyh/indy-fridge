@@ -1,78 +1,14 @@
 <script>
     window.addEventListener('alpine:init', () => {
-        function notifyChange(items) {
-            window.dispatchEvent(
-                new CustomEvent('favoritesChanged', {
-                    detail: { items },
-                }),
-            )
-        }
 
         Alpine.store('favorites', {
-            items: Alpine.$persist([]).as('beer-favorites'),
-
-            add(url) {
-                if (!this.items.includes(url)) {
-                    this.items.push(url)
-                    notifyChange(this.items)
-                }
-            },
-
-            remove(url) {
-                this.items = this.items.filter(item => item !== url)
-                notifyChange(this.items)
-            },
-
-            toggle(url) {
-                if (this.has(url)) {
-                    this.remove(url)
-                } else {
-                    this.add(url)
-                }
-            },
-
-            has(url) {
-                return this.items.includes(url)
-            },
-
-            count() {
-                return this.items.length
-            },
-
-            clear() {
-                this.items = []
-                notifyChange(this.items)
-            },
-        })
-
-        Alpine.data('favoritesFilter', () => ({
             active: false,
+            items: Alpine.$persist([]).as('beer-favorites'),
             init() {
-                this.$watch('active', () => {
-                    if (this.active) {
-                        this.applyFilter()
-                    } else {
-                        this.clearFilter()
-                    }
-                })
-
-                window.addEventListener('favoritesChanged', () => {
-                    if (this.hasFavorites === false && this.active) {
-                        this.active = false
-                    } else if (this.active) {
-                        this.clearFilter()
-                        this.$nextTick(() => {
-                            this.applyFilter()
-                        })
-                    }
-                })
-            },
-            get hasFavorites() {
-                return this.$store.favorites.count() > 0
+                Alpine.effect(() => this.active ? this.applyFilter() : this.clearFilter())
             },
             applyFilter() {
-                window.dispatchEvent(new CustomEvent('filterByFavorites'))
-                this.$store.favorites.items.forEach(url => {
+                this.items.forEach(url => {
                     window.dispatchEvent(new CustomEvent('urlFacetToggle', {
                         detail: { value: url }
                     }))
@@ -83,23 +19,61 @@
                     detail: { refinements: ['url'] }
                 }))
             },
-            toggle() {
+            toggleFavorite(url) {
+                this.has(url) ? this.remove(url) : this.add(url)
+            },
+            toggleActive() {
                 this.active = !this.active
+            },
+            get count() {
+                return this.items.length
+            },
+            get hasFavorites() {
+                return this.count > 0
+            },
+            add(url) {
+                if (!this.items.includes(url)) {
+                    this.items.push(url)
+                    this.notifyChange()
+                }
+            },
+
+            remove(url) {
+                this.items = this.items.filter(item => item !== url)
+                this.notifyChange()
+            },
+
+            has(url) {
+                return this.items.includes(url)
+            },
+            notifyChange() {
+                if (this.hasFavorites === false && this.active) {
+                    this.active = false
+                } else if (this.active) {
+                    this.clearFilter()
+                }
             }
-        }))
+        })
     })
 </script>
-<x-button.icon-button
-    x-data="favoritesFilter"
-    x-on:click="toggle()"
-    x-bind:disabled="!hasFavorites"
-    x-bind:class="{ 'bg-pink-500/20' : active }"
+<x-button.favourite
+    x-data
+    x-on:click="$store.favorites.toggleActive()"
+    x-bind:disabled="!$store.favorites.hasFavorites"
+    active-expression="$store.favorites.active"
+    active-label="Show all beers"
+    inactive-label="Show favourites only"
+    class="relative"
 >
-    <x-icon.heart
-        class="w-4 h-4 transition-colors"
-        x-bind:class="{ 'text-pink-400 fill-pink-400' : active, 'text-gray-400': !active }"
-    />
-    <x-slot:label x-text="active ? 'Show all beers' : 'Show favourites only'">
-        Show favourites only
-    </x-slot:label>
-</x-button.icon-button>
+    <span
+        x-cloak
+        x-show="$store.favorites.hasFavorites"
+        x-text="$store.favorites.count"
+        @class([
+            'absolute right-0 top-0',
+            'bg-white text-black text-xs',
+            'px-1.5 rounded-full',
+            'translate-x-1/3 -translate-y-1/3'
+        ])
+    ></span>
+</x-button.favourite>

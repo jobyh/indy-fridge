@@ -9,7 +9,7 @@
     'inline-block',
     'rounded-md font-bold text-center',
     'active:scale-95 cursor-pointer',
-    'bg-blue-500 text-gray-900' => $variants->contains('primary'),
+    'bg-radial from-blue-300 to-blue-500 text-gray-900' => $variants->contains('primary'),
     'bg-gray-700' => $variants->doesntContain('primary'),
     'px-5 py-1.5' => $variants->doesntContain('no-padding'),
     'focus:outline-none focus-visible:ring-3 focus-visible:ring-green-500',

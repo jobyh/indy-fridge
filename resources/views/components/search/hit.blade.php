@@ -53,21 +53,13 @@
 
             <div class="inline-flex items-stretch gap-2">
 
-                <x-button.icon-button
+                <x-button.favourite
                     class="order-last"
-                    x-on:click="$store.favorites.toggle(hit.url)"
-                    x-bind:class="{ '!bg-pink-500/20': $store.favorites.has(hit.url) }"
-                >
-                    <x-icon.heart
-                        class="w-4 h-4"
-                        x-bind:class="$store.favorites.has(hit.url) ? 'text-pink-400' : 'text-gray-400'"
-                    />
-                    <x-slot:label x-text="$store.favorites.has(hit.url) ? 'Remove from favourites' : 'Add to favourites'"
-                    >
-                        Add to favourites
-                    </x-slot:label>
-                </x-button.icon-button>
-
+                    active-expression="$store.favorites.has(hit.url)"
+                    active-label="Remove from favourites"
+                    inactive-label="Add to favourites"
+                    x-on:click="$store.favorites.toggleFavorite(hit.url)"
+                />
                 <div class="grow">
                     <dt class="sr-only">Quantity in stock</dt>
                     <dd>
