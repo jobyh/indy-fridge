@@ -4,6 +4,7 @@ namespace App\Spiders\Pipeline;
 
 use App\Models\Beer;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use RoachPHP\ItemPipeline\ItemInterface;
 use RoachPHP\ItemPipeline\Processors\ItemProcessorInterface;
 use RoachPHP\Support\Configurable;
@@ -16,6 +17,10 @@ class StoreProcessor implements ItemProcessorInterface
     {
         if ($item->get('stock') === 0) {
             return $item->drop('Beer '.$item->get('url').' is out of stock');
+        }
+
+        if (Collection::make($item->get('tags'))->contains('Gift Ideas')) {
+            return $item->drop('Product '.$item->get('url').' is a gift idea');
         }
 
         $null = collect($item->all())->filter(fn ($value) => is_null($value));
