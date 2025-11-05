@@ -10,4 +10,5 @@
         <x-search.hits x-cloak class="-mx-layout md:!mx-0" />
         <x-loader x-data="loader" />
     </main>
+    <x-disclaimer />
 </x-layout.html>
