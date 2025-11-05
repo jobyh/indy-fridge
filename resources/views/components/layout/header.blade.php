@@ -15,7 +15,7 @@
 
             <div class="flex w-full items-stretch gap-2">
                 <x-search.widget class="flex-grow" />
-                <span class="hidden md:flex items-center ml-6 mr-1 text-sm">Sort by</span>
+                <span class="hidden md:flex items-center ml-6 mr-1 text-sm whitespace-nowrap">Sort by</span>
 
                 <x-search.sort-order class="md:w-[12rem]" />
                 <x-search.favorites-filter class="h-full" />
