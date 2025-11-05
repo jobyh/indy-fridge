@@ -74,6 +74,7 @@ class Beer extends Model implements HasMedia
     public function registerMediaConversions(?Media $media = null): void
     {
         $this->addMediaConversion('full')
+            ->background('#ffffff')
             ->width(500)
             ->height(500);
     }
