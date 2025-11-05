@@ -32,6 +32,14 @@ jobs:
           path: database/database.sqlite
           key: db-${{ hashFiles('database/migrations/**') }}
 
+      - name: Restore storage cache
+        id: cache-storage
+        if: github.event_name == 'push'
+        uses: actions/cache@v4
+        with:
+          path: storage/public
+          key: storage-${{ hashFiles('storage/public/**') }}
+
       - name: Setup Laravel Environment
         uses: ./.github/actions/setup-laravel
         with:
@@ -58,6 +66,13 @@ jobs:
         with:
           path: database/database.sqlite
           key: db-${{ hashFiles('database/migrations/**') }}
+
+      - name: Save storage cache
+        if: steps.cache-storage.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: storage/public
+          key: storage-${{ hashFiles('storage/public/**') }}
 
       - name: Refresh search index
         if: steps.cache-db.outputs.cache-hit != 'true'
