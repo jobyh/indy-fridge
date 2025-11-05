@@ -44,6 +44,8 @@
     />
     <button
         x-ref="button"
+        x-cloak
+        x-show="! disableClear"
         x-on:click="clear"
         x-bind:disabled="disableClear"
         @class([

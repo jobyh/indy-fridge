@@ -14,7 +14,7 @@
             open() {
                 this.$store.disclaimer.open()
                 this.$nextTick(() => {
-                    this.$refs['disclaimer-content'].scrollTop = 0
+                    this.$refs['disclaimer-content'].scrollTo(0, 0)
                 })
             }
         }))
@@ -22,6 +22,7 @@
 </script>
 <div x-data="disclaimer">
     <button
+        x-cloak
         @class([
             'fixed bottom-4 right-6 md:right-8 z-40 rounded-full',
             'bg-white p-2 shadow-lg text-gray-900',
@@ -33,7 +34,9 @@
         <span class="sr-only">About this app</span>
     </button>
     <div
+        x-cloak
         x-show="$store.disclaimer.show"
+        role="alert"
         @class([
             'z-50 absolute top-0 right-0 bottom-0 left-0',
             'backdrop-blur-lg p-6',
