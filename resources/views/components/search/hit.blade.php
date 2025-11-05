@@ -51,25 +51,29 @@
                 </dd>
             </div>
 
-            <div class="inline-flex items-stretch gap-2">
-
-                <x-button.favourite
-                    class="order-last"
-                    active-expression="$store.favorites.has(hit.url)"
-                    active-label="Remove from favourites"
-                    inactive-label="Add to favourites"
-                    x-on:click="$store.favorites.toggleFavorite(hit.url)"
-                />
-                <div class="grow">
-                    <dt class="sr-only">Quantity in stock</dt>
-                    <dd>
-                        <x-button variant="primary" href="#" x-bind:href="'https://theindependent.pub' + hit.url" class="w-full sm:w-32">
-                            <x-type x-text="hit.stock"></x-type><span aria-hidden="true"> in stock</span>
-                        </x-button>
-                    </dd>
-                </div>
-
-            </div>
         </dl>
+
+        <div class="mt-3 mb-4 sm:hidden bg-white aspect-square rounded-md col-span-12 sm:col-span-3 items-center justify-center py-3">
+            <img x-bind:src="hit.product_image" x-bind:alt="'Picture of ' + hit.name" class="object-fit  text-xs text-gray-500" />
+        </div>
+
+        <div class="flex flex-row-reverse items-stretch gap-2">
+
+            <x-button.favourite
+                active-expression="$store.favorites.has(hit.url)"
+                active-label="Remove from favourites"
+                inactive-label="Add to favourites"
+                x-on:click="$store.favorites.toggleFavorite(hit.url)"
+            />
+            <div class="grow sm:grow-0">
+                <dt class="sr-only">Quantity in stock</dt>
+                <dd>
+                    <x-button variant="primary" href="#" x-bind:href="'https://theindependent.pub' + hit.url" class="w-full sm:w-32">
+                        <x-type x-text="hit.stock"></x-type><span aria-hidden="true"> in stock</span>
+                    </x-button>
+                </dd>
+            </div>
+
+        </div>
     </div>
 </{{ $tag }}>
