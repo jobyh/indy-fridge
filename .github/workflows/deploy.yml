@@ -37,7 +37,7 @@ jobs:
         if: github.event_name == 'push'
         uses: actions/cache@v4
         with:
-          path: storage/public
+          path: storage/app/public
           key: storage-${{ hashFiles('storage/app/public/**') }}
 
       - name: Setup Laravel Environment
@@ -71,7 +71,7 @@ jobs:
         if: steps.cache-storage.outputs.cache-hit != 'true'
         uses: actions/cache/save@v4
         with:
-          path: storage/public
+          path: storage/app/public
           key: storage-${{ hashFiles('storage/app/public/**') }}
 
       - name: Refresh search index
