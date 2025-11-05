@@ -21,18 +21,18 @@
     })
 </script>
 <div x-data="disclaimer">
-    <button
-        x-cloak
-        @class([
-            'fixed bottom-4 right-6 md:right-8 z-40 rounded-full',
-            'bg-white p-2 shadow-lg text-gray-900',
-            'cursor-pointer shadow-lg',
-        ])
-        x-on:click="open"
-    >
-        <x-icon.question class="w-6 h-6" />
-        <span class="sr-only">About this app</span>
-    </button>
+{{--    <button--}}
+{{--        x-cloak--}}
+{{--        @class([--}}
+{{--            'fixed bottom-4 right-6 md:right-8 z-40 rounded-full',--}}
+{{--            'bg-white p-2 shadow-lg text-gray-900',--}}
+{{--            'cursor-pointer shadow-lg',--}}
+{{--        ])--}}
+{{--        x-on:click="open"--}}
+{{--    >--}}
+{{--        <x-icon.question class="w-6 h-6" />--}}
+{{--        <span class="sr-only">About this app</span>--}}
+{{--    </button>--}}
     <div
         x-cloak
         x-show="$store.disclaimer.show"
