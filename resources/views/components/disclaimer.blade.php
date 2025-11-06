@@ -44,10 +44,11 @@
         ])
     >
         <div @class([
-            'py-6 max-w-sm',
+            'py-6 max-w-sm lg:max-w-md',
             'bg-white rounded-xl shadow-lg text-gray-900',
             'max-h-full flex flex-col',
         ])>
+
             <div x-ref="disclaimer-content" class="h-full overflow-y-auto px-6">
                 <x-type tag="h2" class="font-bold text-2xl text-center">Hey Indy Local 👋</x-type>
                 <div class="flex flex-col gap-3 mt-3">
@@ -78,10 +79,11 @@
                         on your device, no cookies are required.
                     </x-type>
                     <x-type tag="p">
-                        This is an entirely unoffical project,
-                        not affiliated with the Independent, Brighton.
+                        This is an entirely unoffical, guerrilla coding project
+                        not affiliated with the Independent, but made with love
+                        for that excellent establishment 💜
                     </x-type>
-                    <x-type tag="p" class="text-xl text-center">
+                    <x-type tag="p" class="text-xl text-center mt-3">
                         Cheers! &ndash; <x-type.link variant="dark" class="!decoration-2" href="https://jobyharding.com">Joby</x-type.link>
                     </x-type>
                 </div>
@@ -89,7 +91,17 @@
                     variant="primary"
                     class="mt-8 w-full"
                     x-on:click="$store.disclaimer.close()"
-                >Yeah whatever</x-button>
+                >
+                    Yeah whatever
+                </x-button>
+
+                <div class="flex justify-end">
+                    <a class="mt-3 py-1 block" href="https://github.com/jobyh/indy-fridge">
+                        <span>For the coders</span>
+                        <x-icon.github class="w-6 h-6 inline-block" />
+                    </a>
+                </div>
+
             </div>
         </div>
     </div>
