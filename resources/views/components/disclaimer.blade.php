@@ -57,7 +57,7 @@
                     </x-type>
                     <x-type tag="p">
                         Every night, code elves visit the Indy's website
-                        and update the items listed here.
+                        and update the items listed here ✨.
                     </x-type>
                     <x-type tag="p">
                         Try searching for a brewery you like, hop names
