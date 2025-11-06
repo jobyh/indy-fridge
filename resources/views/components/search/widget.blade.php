@@ -16,7 +16,7 @@
             clear() {
                 this.query = ''
             },
-            disableClear() {
+            get disableClear() {
                 return this.query === ''
             }
         }));
