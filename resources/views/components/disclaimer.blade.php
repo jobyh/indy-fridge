@@ -54,7 +54,7 @@
                 <div class="flex flex-col gap-3 mt-3">
                     <x-type tag="p">
                         This is a web app I built to help me find beers I might like
-                        in the Independent's fridge and online store.
+                        in <x-type.link variant="dark" href="https://theindepdendent.pub">The Independent's</x-type.link> fridge and online store.
                     </x-type>
                     <x-type tag="p">
                         Every night, code elves visit the Indy's website
