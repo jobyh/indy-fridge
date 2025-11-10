@@ -87,13 +87,22 @@
                         Cheers! &ndash; <x-type.link variant="dark" class="!decoration-2" href="https://jobyharding.com">Joby</x-type.link>
                     </x-type>
                 </div>
-                <x-button
-                    variant="primary"
-                    class="mt-8 w-full"
-                    x-on:click="$store.disclaimer.close()"
-                >
-                    Yeah whatever
-                </x-button>
+
+                <section class="mt-8">
+                    <p @class([
+                        'bg-amber-100 border-l-4 border-amber-300',
+                        'py-1 px-4',
+                    ])>
+                        ⚠️ Confirm you are over 18 to proceed
+                    </p>
+                    <x-button
+                        variant="primary"
+                        class="mt-4 w-full"
+                        x-on:click="$store.disclaimer.close()"
+                    >
+                        I'm over 18
+                    </x-button>
+                </section>
 
                 <div class="flex justify-end">
                     <a class="mt-3 py-1 block" href="https://github.com/jobyh/indy-fridge">
