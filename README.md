@@ -5,8 +5,10 @@ The codebase generates a static site, updated each day, with
 snappy search for the craft beer takeout fridge at The Independent
 in Brighton, UK. https://indy-fridge.jobyharding.com
 
-If you find yourself in Brighton and enjoy craft beer it should
-be first on your list https://theindependent.pub/
+If you find yourself in Brighton and enjoy craft beer,
+[The Independent](https://theindependent.pub/) in Hanover, or
+[The Rook](https://therook.pub/) its taproom in the
+city centre, should be at the top of your list.
 
 This entirely my own project and is not affiliated with The Independent.
 Hopefully some other Indy 'locals' will find it useful.
@@ -20,15 +22,6 @@ their React API which can feel unnecessarily complex.
 
 As such, I've used an event-driven approach where `window` object is
 used as an event bus to prevent tight coupling between components.
-
-## TODO
-- [x] Keyboard focus styles
-- [x] Add a favicon
-- [x] QR code
-- [x] Cache SQLite database between builds so spidering only happens once a day
-- [x] Add responsive can images (save these to storage)
-- [ ] Fix hops layout when there are lots of hops
-- [ ] Touch icons & alternate favicons
 
 ## License
 
