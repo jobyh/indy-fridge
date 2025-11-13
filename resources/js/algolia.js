@@ -108,9 +108,9 @@ window.addEventListener('sortChanged', event => {
 search.addWidgets([
   customSearchBox(),
   customHits(),
-  createRefinementList('brewery')({ attribute: 'brewery', limit: 100 }),
-  createRefinementList('hops')({ attribute: 'hops', limit: 100 }),
-  createRefinementList('style')({ attribute: 'style', limit: 100 }),
+  // createRefinementList('brewery')({ attribute: 'brewery', limit: 100 }),
+  // createRefinementList('hops')({ attribute: 'hops', limit: 100 }),
+  // createRefinementList('style')({ attribute: 'style', limit: 100 }),
   createRefinementList('url')({ attribute: 'url', limit: 1000 }),
   customClearRefinements({ includedAttributes: [] }),
 ])
