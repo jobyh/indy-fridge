@@ -1,6 +1,6 @@
-<div {{ $attributes->class('flex items-center gap-1.5') }}>
-    <x-type x-html="hit.style + (hit.tags.length > 0 ? ', ': '')"></x-type>
-    <span x-show="hit.tags.length > 0" class="flex items-center gap-1.5 flex-wrap">
+<div {{ $attributes->class('flex gap-1.5') }}>
+    <span x-show="hit.tags.length > 0" class="flex items-start gap-x-1.5 flex-wrap">
+        <x-type x-html="hit.style + (hit.tags.length > 0 ? ', ': '')"></x-type>
         <template x-for="(tag, index) in hit.tags" :key="tag">
             (
             <span>

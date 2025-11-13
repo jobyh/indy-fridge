@@ -5,7 +5,7 @@
     </div>
 
     <div class="col-span-12 sm:col-span-9">
-        <div class="flex flex-row items-center flex-wrap gap-x-4 gap-y-2">
+        <div class="flex flex-col sm:flex-row sm:items-center flex-wrap gap-x-4 gap-y-2">
             <x-label>
                 <div class="flex items-center gap-1.5">
                     <x-icon.brewery class="w-4 h-4 text-white/80" />
@@ -15,9 +15,9 @@
             </x-label>
 
             <div x-show="hit.hops.length">
-                <div class="!text-sm flex items-center flex-wrap">
+                <div class="!text-sm flex items-start flex-nowrap">
                     <span class="sr-only">Hops: </span>
-                    <x-icon.hop class="w-4 h-4 text-white/70 mr-1.5" />
+                    <x-icon.hop class="w-4 h-4 shrink-0 text-white/70 mr-1.5 translate-y-[2px]" />
                     <x-type tag="ul" variant="dim" class="flex items-center gap-1.5 flex-wrap">
                         <template x-for="(hop, index) in hit.hops" :key="hop">
                             <x-type x-tag="li" class="inline-block">
