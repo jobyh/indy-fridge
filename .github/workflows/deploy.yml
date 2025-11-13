@@ -61,11 +61,11 @@ jobs:
           sleep 5
 
       - name: Gather beer data
-        if: steps.cache-db.outputs.cache-hit != 'true'
+        if: github.event_name != 'push'
         run: php artisan roach:run IndySpider
 
       - name: Save database cache
-        if: steps.cache-db.outputs.cache-hit != 'true'
+        if: github.event_name != 'push'
         uses: actions/cache/save@v4
         with:
           path: database/database.sqlite
@@ -79,7 +79,7 @@ jobs:
           key: storage-${{ github.run_id }}
 
       - name: Refresh search index
-        if: steps.cache-db.outputs.cache-hit != 'true'
+        if: github.event_name != 'push'
         run: |
           php artisan scout:flush 'App\Models\Beer'
           php artisan scout:import 'App\Models\Beer'
