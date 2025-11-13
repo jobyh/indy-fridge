@@ -95,6 +95,9 @@ jobs:
         with:
           path: ./dist
 
+      - name: Allow Nightwatch agent time to finish
+        run: sleep 10
+
   deploy:
     environment:
       name: github-pages
