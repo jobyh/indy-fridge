@@ -88,7 +88,7 @@ jobs:
         run: php artisan app:take-out-menu
 
       - name: Generate static site
-        run: php artisan export
+        run: php artisan export -vvv
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
