@@ -35,10 +35,10 @@ jobs:
       - name: Restore storage cache
         id: cache-storage
         if: github.event_name == 'push'
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: storage/app/public
-          key: storage-${{ hashFiles('storage/app/public/**') }}
+          key: storage
 
       - name: Setup Laravel Environment
         uses: ./.github/actions/setup-laravel
@@ -68,11 +68,11 @@ jobs:
           key: db-${{ hashFiles('database/migrations/**') }}
 
       - name: Save storage cache
-        if: steps.cache-storage.outputs.cache-hit != 'true'
+        if: github.event_name != 'push'
         uses: actions/cache/save@v4
         with:
           path: storage/app/public
-          key: storage-${{ hashFiles('storage/app/public/**') }}
+          key: storage
 
       - name: Refresh search index
         if: steps.cache-db.outputs.cache-hit != 'true'
