@@ -47,7 +47,7 @@ jobs:
       - name: Setup Laravel Environment
         uses: ./.github/actions/setup-laravel
         with:
-          skip-database-setup: ${{ steps.cache-db.outputs.cache-hit == 'true' }}
+          skip-database-setup: ${{ github.event_name == 'push' }}
         env:
           FATHOM_SITE: ${{ secrets.FATHOM_SITE }}
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
