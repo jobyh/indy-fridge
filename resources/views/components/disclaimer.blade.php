@@ -24,7 +24,7 @@
     <button
         x-cloak
         @class([
-            'fixed bottom-4 right-6 md:right-8 z-40 rounded-full',
+            'absolute bottom-4 right-6 md:right-8 z-40 rounded-full',
             'bg-white p-2 shadow-lg text-gray-900',
             'cursor-pointer shadow-lg',
         ])
