@@ -18,7 +18,7 @@ Hopefully some other Indy 'locals' will find it useful.
 Search uses Algolia's *vanilla* JavaScript Instant Search API.
 I used this project to figure out whether it was feasible to
 connect Algolia with Alpine JS for a user experience equivalent to
-their React API which can feel unnecessarily complex.
+their React library which can feel unnecessarily complex.
 
 As such, I've used an event-driven approach where `window` object is
 used as an event bus to prevent tight coupling between components.
