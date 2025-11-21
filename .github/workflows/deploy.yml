@@ -82,6 +82,7 @@ jobs:
         if: github.event_name != 'push'
         run: |
           php artisan scout:flush 'App\Models\Beer'
+          sleep 5
           php artisan scout:import 'App\Models\Beer'
 
       - name: Generate take-out menu
